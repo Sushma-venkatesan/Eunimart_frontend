@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Open Library Books List View</title>
+  <style>
+    /* Style for the list items */
+    .list-item {
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid black;
+    }
+    /* Style for the list item title */
+    .list-item h5 {
+      margin: 0;
+    }
+    /* Style for the list item author */
+    .list-item p {
+      margin: 0;
+      font-style: italic;
+    }
+    #logout-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#logout-btn:hover {
+  background-color: #d32f2f;
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="my-4">Open Library Books List View</h1>
+    <ul id="booksList">
+    </ul>
+  </div>
+
+  <script>
+    // Fetch the list of books from the Open Library API
+    fetch('https://openlibrary.org/subjects/fiction.json?limit=10')
+      .then(response => response.json())
+      .then(books => {
+        // Loop through the list of books and add each book to the list
+        books.works.forEach(book => {
+          const listItem = document.createElement('li');
+          listItem.className = 'list-item';
+          listItem.innerHTML = `
+            <h5>${book.title}</h5>
+            <p>${book.authors ? book.authors[0].name : 'Unknown author'}</p>
+          `;
+          document.getElementById('booksList').appendChild(listItem);
+        });
+      })
+      .catch(error => console.error(error));
+  </script>
+  
+  <form action="index.html">
+    
+    <button id="logout-btn"onclick="logout()">Logout</button>
+    
+    <script>
+      function logout() {
+        // Add your logout functionality here
+        alert('You have been logged out');
+      }
+    </script>
+    </form>
+  </body>
+  </html>
+  
+</body>
+</html>
+

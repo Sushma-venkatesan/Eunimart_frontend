@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+    <head>
+        <title>
+            login page
+        </title>
+        <meta charset="utf-8">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        
+        
+      </head>
+      <body>
+      
+      <div class="container">
+        <h2>LOGIN DETAILS</FORM></h2>
+        <form action="list.html">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter name" name="email" required/>
+                
+              </div>
+             
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required/>
+          </div>
+        
+        
+      
+          <div class="form-group">
+            <label for="phno">Contact Number</label>
+            <input type="phone" class="form-control" id="phno" placeholder="Enter mobile number" name="phno" required/>
+          </div>
+         
+          
+          
+            <button style="margin-top: 5px" onclick="saveData()">Submit</button>
+        </form>
+        </form>
+      </div>
+     
+  
+      
+      </body>
+      <style>
+        
+      </style>
+      <script>
+function saveData()
+{
+let name,email,phno;
+name=document.getElementById("name").value;
+email=document.getElementById("email").value;
+
+phno=document.getElementById("phno").value;
+
+localStorage.setItem("name",name)
+localStorage.setItem("email",email)
+localStorage.setItem("phno",phno)
+}
+          </script>
+         
+          
+      </html>
